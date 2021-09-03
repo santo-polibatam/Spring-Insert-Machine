@@ -27,7 +27,31 @@ Partial Class Main
         Me.TabReport = New System.Windows.Forms.TabPage()
         Me.TabRejectRate = New System.Windows.Forms.TabPage()
         Me.TabCom = New System.Windows.Forms.TabPage()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.lblIPAddrs = New System.Windows.Forms.Label()
+        Me.txtIpAddrs = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.txtPort = New System.Windows.Forms.TextBox()
+        Me.btnConnect = New System.Windows.Forms.Button()
+        Me.btnDisconnect = New System.Windows.Forms.Button()
+        Me.lblStatus = New System.Windows.Forms.Label()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.btnReadModbus = New System.Windows.Forms.Button()
+        Me.txtStartRead = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.txtLengthRead = New System.Windows.Forms.TextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.lstRegValues = New System.Windows.Forms.ListBox()
+        Me.btnWriteModbus = New System.Windows.Forms.Button()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.TabControl1.SuspendLayout()
+        Me.TabCom.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
         'TabControl1
@@ -75,12 +99,218 @@ Partial Class Main
         '
         'TabCom
         '
+        Me.TabCom.Controls.Add(Me.GroupBox2)
+        Me.TabCom.Controls.Add(Me.GroupBox1)
         Me.TabCom.Location = New System.Drawing.Point(4, 33)
         Me.TabCom.Name = "TabCom"
         Me.TabCom.Size = New System.Drawing.Size(1426, 1323)
         Me.TabCom.TabIndex = 3
         Me.TabCom.Text = "Communication"
         Me.TabCom.UseVisualStyleBackColor = True
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.lblStatus)
+        Me.GroupBox1.Controls.Add(Me.btnDisconnect)
+        Me.GroupBox1.Controls.Add(Me.btnConnect)
+        Me.GroupBox1.Controls.Add(Me.txtPort)
+        Me.GroupBox1.Controls.Add(Me.Label1)
+        Me.GroupBox1.Controls.Add(Me.txtIpAddrs)
+        Me.GroupBox1.Controls.Add(Me.lblIPAddrs)
+        Me.GroupBox1.Location = New System.Drawing.Point(27, 21)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(1373, 184)
+        Me.GroupBox1.TabIndex = 0
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Settings"
+        '
+        'lblIPAddrs
+        '
+        Me.lblIPAddrs.AutoSize = True
+        Me.lblIPAddrs.Location = New System.Drawing.Point(51, 45)
+        Me.lblIPAddrs.Name = "lblIPAddrs"
+        Me.lblIPAddrs.Size = New System.Drawing.Size(36, 25)
+        Me.lblIPAddrs.TabIndex = 0
+        Me.lblIPAddrs.Text = "IP:"
+        '
+        'txtIpAddrs
+        '
+        Me.txtIpAddrs.Location = New System.Drawing.Point(137, 40)
+        Me.txtIpAddrs.Name = "txtIpAddrs"
+        Me.txtIpAddrs.Size = New System.Drawing.Size(131, 29)
+        Me.txtIpAddrs.TabIndex = 1
+        Me.txtIpAddrs.Text = "127.0.0.1"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(51, 95)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(63, 25)
+        Me.Label1.TabIndex = 2
+        Me.Label1.Text = "Port : "
+        '
+        'txtPort
+        '
+        Me.txtPort.Location = New System.Drawing.Point(137, 92)
+        Me.txtPort.Name = "txtPort"
+        Me.txtPort.Size = New System.Drawing.Size(131, 29)
+        Me.txtPort.TabIndex = 3
+        Me.txtPort.Text = "502"
+        '
+        'btnConnect
+        '
+        Me.btnConnect.Location = New System.Drawing.Point(312, 28)
+        Me.btnConnect.Name = "btnConnect"
+        Me.btnConnect.Size = New System.Drawing.Size(136, 55)
+        Me.btnConnect.TabIndex = 4
+        Me.btnConnect.Text = "Connect"
+        Me.btnConnect.UseVisualStyleBackColor = True
+        '
+        'btnDisconnect
+        '
+        Me.btnDisconnect.Enabled = False
+        Me.btnDisconnect.Location = New System.Drawing.Point(312, 92)
+        Me.btnDisconnect.Name = "btnDisconnect"
+        Me.btnDisconnect.Size = New System.Drawing.Size(136, 55)
+        Me.btnDisconnect.TabIndex = 5
+        Me.btnDisconnect.Text = "DisConnect"
+        Me.btnDisconnect.UseVisualStyleBackColor = True
+        '
+        'lblStatus
+        '
+        Me.lblStatus.AutoSize = True
+        Me.lblStatus.Location = New System.Drawing.Point(495, 43)
+        Me.lblStatus.Name = "lblStatus"
+        Me.lblStatus.Size = New System.Drawing.Size(91, 25)
+        Me.lblStatus.TabIndex = 6
+        Me.lblStatus.Text = "Status : -"
+        '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.TextBox1)
+        Me.GroupBox2.Controls.Add(Me.Label5)
+        Me.GroupBox2.Controls.Add(Me.TextBox2)
+        Me.GroupBox2.Controls.Add(Me.Label6)
+        Me.GroupBox2.Controls.Add(Me.btnWriteModbus)
+        Me.GroupBox2.Controls.Add(Me.lstRegValues)
+        Me.GroupBox2.Controls.Add(Me.Label4)
+        Me.GroupBox2.Controls.Add(Me.txtLengthRead)
+        Me.GroupBox2.Controls.Add(Me.Label3)
+        Me.GroupBox2.Controls.Add(Me.txtStartRead)
+        Me.GroupBox2.Controls.Add(Me.Label2)
+        Me.GroupBox2.Controls.Add(Me.btnReadModbus)
+        Me.GroupBox2.Location = New System.Drawing.Point(27, 242)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(1373, 1034)
+        Me.GroupBox2.TabIndex = 1
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = " "
+        '
+        'btnReadModbus
+        '
+        Me.btnReadModbus.Enabled = False
+        Me.btnReadModbus.Location = New System.Drawing.Point(169, 142)
+        Me.btnReadModbus.Name = "btnReadModbus"
+        Me.btnReadModbus.Size = New System.Drawing.Size(99, 36)
+        Me.btnReadModbus.TabIndex = 0
+        Me.btnReadModbus.Text = "Read"
+        Me.btnReadModbus.UseVisualStyleBackColor = True
+        '
+        'txtStartRead
+        '
+        Me.txtStartRead.Location = New System.Drawing.Point(137, 56)
+        Me.txtStartRead.Name = "txtStartRead"
+        Me.txtStartRead.Size = New System.Drawing.Size(131, 29)
+        Me.txtStartRead.TabIndex = 3
+        Me.txtStartRead.Text = "0"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(51, 61)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(64, 25)
+        Me.Label2.TabIndex = 2
+        Me.Label2.Text = "Start :"
+        '
+        'txtLengthRead
+        '
+        Me.txtLengthRead.Location = New System.Drawing.Point(137, 101)
+        Me.txtLengthRead.Name = "txtLengthRead"
+        Me.txtLengthRead.Size = New System.Drawing.Size(131, 29)
+        Me.txtLengthRead.TabIndex = 5
+        Me.txtLengthRead.Text = "10"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(51, 106)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(88, 25)
+        Me.Label3.TabIndex = 4
+        Me.Label3.Text = "Length : "
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(34, 149)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(83, 25)
+        Me.Label4.TabIndex = 7
+        Me.Label4.Text = "Register"
+        '
+        'lstRegValues
+        '
+        Me.lstRegValues.FormattingEnabled = True
+        Me.lstRegValues.ItemHeight = 24
+        Me.lstRegValues.Location = New System.Drawing.Point(39, 201)
+        Me.lstRegValues.Name = "lstRegValues"
+        Me.lstRegValues.Size = New System.Drawing.Size(229, 796)
+        Me.lstRegValues.TabIndex = 8
+        '
+        'btnWriteModbus
+        '
+        Me.btnWriteModbus.Location = New System.Drawing.Point(500, 142)
+        Me.btnWriteModbus.Name = "btnWriteModbus"
+        Me.btnWriteModbus.Size = New System.Drawing.Size(110, 36)
+        Me.btnWriteModbus.TabIndex = 9
+        Me.btnWriteModbus.Text = "Write"
+        Me.btnWriteModbus.UseVisualStyleBackColor = True
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(479, 101)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(131, 29)
+        Me.TextBox1.TabIndex = 13
+        Me.TextBox1.Text = "10"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(393, 106)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(74, 25)
+        Me.Label5.TabIndex = 12
+        Me.Label5.Text = "Value :"
+        '
+        'TextBox2
+        '
+        Me.TextBox2.Location = New System.Drawing.Point(479, 56)
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.Size = New System.Drawing.Size(131, 29)
+        Me.TextBox2.TabIndex = 11
+        Me.TextBox2.Text = "0"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(358, 61)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(115, 25)
+        Me.Label6.TabIndex = 10
+        Me.Label6.Text = "Reg Addrs :"
         '
         'Main
         '
@@ -89,8 +319,14 @@ Partial Class Main
         Me.ClientSize = New System.Drawing.Size(1434, 1360)
         Me.Controls.Add(Me.TabControl1)
         Me.Name = "Main"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Auto Spring Insert"
         Me.TabControl1.ResumeLayout(False)
+        Me.TabCom.ResumeLayout(False)
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -100,4 +336,25 @@ Partial Class Main
     Friend WithEvents TabReport As TabPage
     Friend WithEvents TabRejectRate As TabPage
     Friend WithEvents TabCom As TabPage
+    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents txtPort As TextBox
+    Friend WithEvents Label1 As Label
+    Friend WithEvents txtIpAddrs As TextBox
+    Friend WithEvents lblIPAddrs As Label
+    Friend WithEvents lblStatus As Label
+    Friend WithEvents btnDisconnect As Button
+    Friend WithEvents btnConnect As Button
+    Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents btnReadModbus As Button
+    Friend WithEvents txtLengthRead As TextBox
+    Friend WithEvents Label3 As Label
+    Friend WithEvents txtStartRead As TextBox
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Label4 As Label
+    Friend WithEvents lstRegValues As ListBox
+    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents Label5 As Label
+    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents Label6 As Label
+    Friend WithEvents btnWriteModbus As Button
 End Class
