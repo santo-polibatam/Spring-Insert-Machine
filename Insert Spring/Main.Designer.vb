@@ -22,6 +22,7 @@ Partial Class Main
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabHome = New System.Windows.Forms.TabPage()
         Me.TabReport = New System.Windows.Forms.TabPage()
@@ -44,10 +45,11 @@ Partial Class Main
         Me.Label4 = New System.Windows.Forms.Label()
         Me.lstRegValues = New System.Windows.Forms.ListBox()
         Me.btnWriteModbus = New System.Windows.Forms.Button()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.txtxWriteValue = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.txtAddrs = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
+        Me.TimerModbus = New System.Windows.Forms.Timer(Me.components)
         Me.TabControl1.SuspendLayout()
         Me.TabCom.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -188,9 +190,9 @@ Partial Class Main
         '
         'GroupBox2
         '
-        Me.GroupBox2.Controls.Add(Me.TextBox1)
+        Me.GroupBox2.Controls.Add(Me.txtxWriteValue)
         Me.GroupBox2.Controls.Add(Me.Label5)
-        Me.GroupBox2.Controls.Add(Me.TextBox2)
+        Me.GroupBox2.Controls.Add(Me.txtAddrs)
         Me.GroupBox2.Controls.Add(Me.Label6)
         Me.GroupBox2.Controls.Add(Me.btnWriteModbus)
         Me.GroupBox2.Controls.Add(Me.lstRegValues)
@@ -205,7 +207,7 @@ Partial Class Main
         Me.GroupBox2.Size = New System.Drawing.Size(1373, 1034)
         Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = " "
+        Me.GroupBox2.Text = " Holding Register"
         '
         'btnReadModbus
         '
@@ -271,6 +273,7 @@ Partial Class Main
         '
         'btnWriteModbus
         '
+        Me.btnWriteModbus.Enabled = False
         Me.btnWriteModbus.Location = New System.Drawing.Point(500, 142)
         Me.btnWriteModbus.Name = "btnWriteModbus"
         Me.btnWriteModbus.Size = New System.Drawing.Size(110, 36)
@@ -278,13 +281,13 @@ Partial Class Main
         Me.btnWriteModbus.Text = "Write"
         Me.btnWriteModbus.UseVisualStyleBackColor = True
         '
-        'TextBox1
+        'txtxWriteValue
         '
-        Me.TextBox1.Location = New System.Drawing.Point(479, 101)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(131, 29)
-        Me.TextBox1.TabIndex = 13
-        Me.TextBox1.Text = "10"
+        Me.txtxWriteValue.Location = New System.Drawing.Point(479, 101)
+        Me.txtxWriteValue.Name = "txtxWriteValue"
+        Me.txtxWriteValue.Size = New System.Drawing.Size(131, 29)
+        Me.txtxWriteValue.TabIndex = 13
+        Me.txtxWriteValue.Text = "10"
         '
         'Label5
         '
@@ -295,13 +298,13 @@ Partial Class Main
         Me.Label5.TabIndex = 12
         Me.Label5.Text = "Value :"
         '
-        'TextBox2
+        'txtAddrs
         '
-        Me.TextBox2.Location = New System.Drawing.Point(479, 56)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(131, 29)
-        Me.TextBox2.TabIndex = 11
-        Me.TextBox2.Text = "0"
+        Me.txtAddrs.Location = New System.Drawing.Point(479, 56)
+        Me.txtAddrs.Name = "txtAddrs"
+        Me.txtAddrs.Size = New System.Drawing.Size(131, 29)
+        Me.txtAddrs.TabIndex = 11
+        Me.txtAddrs.Text = "0"
         '
         'Label6
         '
@@ -311,6 +314,10 @@ Partial Class Main
         Me.Label6.Size = New System.Drawing.Size(115, 25)
         Me.Label6.TabIndex = 10
         Me.Label6.Text = "Reg Addrs :"
+        '
+        'TimerModbus
+        '
+        Me.TimerModbus.Interval = 500
         '
         'Main
         '
@@ -352,9 +359,10 @@ Partial Class Main
     Friend WithEvents Label2 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents lstRegValues As ListBox
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents txtxWriteValue As TextBox
     Friend WithEvents Label5 As Label
-    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents txtAddrs As TextBox
     Friend WithEvents Label6 As Label
     Friend WithEvents btnWriteModbus As Button
+    Friend WithEvents TimerModbus As Timer
 End Class

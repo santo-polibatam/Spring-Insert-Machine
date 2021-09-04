@@ -21,6 +21,8 @@ Public Class Main
                 btnConnect.Enabled = False
                 btnDisconnect.Enabled = True
                 btnReadModbus.Enabled = True
+                btnWriteModbus.Enabled = True
+                TimerModbus.Enabled = True
             End If
         Catch ex As Exception
             MsgBox("Error Connection!")
@@ -36,6 +38,8 @@ Public Class Main
                 btnConnect.Enabled = True
                 btnDisconnect.Enabled = False
                 btnReadModbus.Enabled = False
+                btnWriteModbus.Enabled = False
+                TimerModbus.Enabled = False
             End If
         Catch ex As Exception
             MsgBox("Error Disconnect!")
@@ -55,7 +59,23 @@ Public Class Main
                 Next
             End If
         Catch ex As Exception
+            TimerModbus.Enabled = False
             MsgBox("Error Reading")
+            btnDisconnect_Click(sender, e)
         End Try
+    End Sub
+
+    Private Sub btnWriteModbus_Click(sender As Object, e As EventArgs) Handles btnWriteModbus.Click
+        Try
+            ModClient.WriteSingleRegister(txtAddrs.Text, txtxWriteValue.Text)
+        Catch ex As Exception
+            MsgBox("Error Writing")
+        End Try
+    End Sub
+
+    Private Sub TimerModbus_Tick(sender As Object, e As EventArgs) Handles TimerModbus.Tick
+        TimerModbus.Enabled = False
+        btnReadModbus_Click(sender, e)
+        TimerModbus.Enabled = True
     End Sub
 End Class
